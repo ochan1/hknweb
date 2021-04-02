@@ -114,7 +114,7 @@ class CandidateForm(models.Model):
         return "{} - {}".format(self.name, self.candidateSemesterActive)
 
 class CandidateFormDoneEntry(models.Model):
-    users      = models.ManyToManyField(User)
+    users      = models.ManyToManyField(User, blank=True)
     form       = models.OneToOneField(CandidateForm, models.CASCADE)
     notes      = models.TextField(blank=True, default="")
 
@@ -143,7 +143,7 @@ class DuePayment(models.Model):
         return "{} - {}".format(self.name, self.candidateSemesterActive)
 
 class DuePaymentPaidEntry(models.Model):
-    users           = models.ManyToManyField(User)
+    users           = models.ManyToManyField(User, blank=True)
     duePayment      = models.OneToOneField(DuePayment, models.CASCADE)
     notes           = models.TextField(blank=True, default="")
 
@@ -172,7 +172,7 @@ class CommitteeProject(models.Model):
         return "{} - {}".format(self.name, self.candidateSemesterActive)
 
 class CommitteeProjectDoneEntry(models.Model):
-    users                  = models.ManyToManyField(User)
+    users                  = models.ManyToManyField(User, blank=True)
     committeeProject       = models.OneToOneField(CommitteeProject, models.CASCADE)
     notes                  = models.TextField(blank=True, default="")
 
