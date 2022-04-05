@@ -7,7 +7,7 @@ import hknweb.events.google_calendar_utils as gcal
 
 
 class Rsvp(models.Model):
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="rsvp'd by")
+    user = models.ForeignKey(User, models.CASCADE, verbose_name="rsvp'd by", unique=True)
     event = models.ForeignKey(Event, models.CASCADE)
     confirmed = models.BooleanField(default=False)
     comment = models.TextField(blank=True, default="")
